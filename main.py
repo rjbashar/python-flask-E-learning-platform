@@ -1045,15 +1045,4 @@ def Event(id):
 if __name__ == '__main__':
     backup()
     
-    t = threading.Thread(target=app.run(host="0.0.0.0",port=5000,debug=True,use_reloader=True))
-    t.daemon = True
-    t.start()
-    print "ok1"
-    webview.create_window(title="teach-me", url='http://0.0.0.0:5000/login', width=800, height=600, resizable=True,\
-                      fullscreen=False, min_size=(200, 100), confirm_close=False, text_select=False)
-
-    webview.start()
-    print "ok2"
-    sys.exit()
-    
-    
+    app.run(host="0.0.0.0",port=5000,debug=True,use_reloader=True)
