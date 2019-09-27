@@ -1,0 +1,34 @@
+{% include"header.html" %}
+<link rel="icon" type="image/png" href="assets/icon.png" />
+<meta charset="utf-8">
+
+</header>
+<div id="main_container" class="container">
+    <form action="" method="post">
+    <h3>Title</h3>
+    <input class="form-control form-control-lg" type="text" name="title" value="{{chapitre_content[0][0] }}">
+    <div class="result">
+        <textarea id="area_editor" name="content">{{ chapitre_content[0][1] }}</textarea>
+
+    </div>
+
+    
+    <button type="submit" class="btn btn-primary btn-lg btn-block">Publier</button>
+
+    </div>
+
+</form>
+</div>
+</body>
+<link rel="stylesheet" href="{{ url_for('static',filename='css/jodit.min.css') }}"/>
+<link rel="stylesheet" href="{{ url_for('static',filename='css/app.css') }}"/>
+<link href="{{ url_for('static',filename='css/fonteditor.css') }}" rel="stylesheet">
+
+<script src="{{ url_for('static',filename='js/jodit.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/prism.js') }}"></script>
+<script src="{{ url_for('static',filename='js/app.js') }}"></script>
+<script>
+    var editor = new Jodit('#area_editor', {
+       //
+    });
+</script>

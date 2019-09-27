@@ -1,0 +1,126 @@
+{% include"header.html" %}
+<style type="text/css">
+	.megamenu-li {
+	position: static;
+}
+
+.megamenu {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	right: 0;
+	padding: 15px;
+}
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+    background-color: blue;
+
+}
+#btn1{ background-color: #fc4300 }
+#btn2{background-color: #23e805 }
+#v-pills-tab{background-color:  #101275;}
+
+
+</style>
+ <form  action="" method="post">
+<div class="container">
+    <div>
+    	
+        <!-- edit form column -->
+            <h2><b>Edit Course</b></h2>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img  src="data:image/png;base64, {{ course_info[0][5] }}" alt="2222" />
+            <br>
+            <br><br>
+       
+        <div class="col-lg-8 push-lg-4 personal-info">
+            
+                <div class="form-group row">
+
+                    <label class="col-lg-3 col-form-label form-control-label"><b>Ttile</b></label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{ course_info[0][0] }}" name="title" />
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label"><b>Requiremment|safe</b></label>
+                    <div class="col-lg-9">
+                        <textarea class="form-control"  rows="3" name="Requiremment">{{ course_info[0][2]|safe }}</textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label"><b>Introduction</b></label>
+                    <div class="col-lg-9">
+                       <textarea class="form-control"  rows="3" name="intro">{{ course_info[0][1]|safe }}</textarea>
+                    </div>
+                </div>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-primary" style="background-color: #101275;  margin: auto; width: 50%;border: 3px solid blue; padding: 10px;"><i class='fa fa-edit' ></i>Edit </button>
+               
+    </div>
+
+</div>
+<h3>Chapiters :</h3>
+<div class="row">
+<div class="col-3">
+<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
+{% for i in course_chapiters_liste %}
+  <a class="nav-link {% if i[4]=='1': %} active {% endif %}" id="{{ i[3] }}-tab" data-toggle="pill" href="#{{ i[3] }}" role="tab" aria-controls="{{ i[3] }}" aria-expanded="true">{{ i[0]|safe }}</a>
+{% endfor %}
+  
+</div>
+</div>
+<div class="col-9">
+<div class="tab-content" id="v-pills-tabContent">
+    {% for i in course_chapiters_liste %}
+  <div class="tab-pane fade {% if i[4]=='1': %} show active {% endif %}" id="{{ i[3] }}" role="tabpanel" aria-labelledby="{% if i[4]=='1': %} v-pills-home-tab {% else: %} {{ i[3] }}-tab {% endif %} ">{{i[1]|safe}}
+    <a  href="#" class="btn btn-warning btn-circle" id="btn2"><i class="fa fa-edit"></i></a>
+    <a href="{{ url_for(request.endpoint,id=id)+'/Edit_chapitre/'+i[4] }}" class="btn btn-warning btn-circle" id="btn1"><i class="fa fa-times"></i> </a>
+    
+ </div>
+    {% endfor %}
+  
+</div>
+</div>
+
+<hr style="background-color: blue; " />
+
+<div class="container">
+      <h3>Quizzes:</h3>
+</div>
+</div>
+
+<hr style="background-color: blue; " />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="{{ url_for(request.endpoint,id=id)+'/Add_chapitre' }}" class="btn btn-primary" style="background-color: #101275;  margin: auto; width: 20%;border: 3px solid blue; padding: 10px;"><i class='fa fa-plus' ></i>&nbsp;&nbsp;Add Chapiter </a>
+
+
+<a href="{{ url_for(request.endpoint,id=id)+'/Add_quizz' }}" class="btn btn-primary" style="background-color: #101275;  margin: auto; width: 20%;border: 3px solid blue; padding: 10px;"><i class='fa fa-lightbulb'></i>&nbsp;&nbsp;Add quizz </a>
+</div>
+<hr style="background-color: blue; " />
+</form>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	$(".megamenu").on("click", function(e) {
+		e.stopPropagation();
+	});
+});
+
+</script>

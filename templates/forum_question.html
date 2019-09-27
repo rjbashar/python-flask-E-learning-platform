@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Forum</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width , initial-scale=1 , shrink-to-fit-no">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+	<form action="" method="post">
+	 <nav class="navbar navbar-dark bg-dark">
+		<h1><a href="{{url_for('indexc')}}" class="nav navbar-nav">Home</a></h1>
+		
+		<input type="text" class="form-control col-md-6 .btn-lg" placeholder="Search...." name="">
+		<button type="submit" class="btn btn-primary btn-lg"><b>Search<b></button>
+		
+	 </nav>
+	</form>
+
+	<table class="table table-striped table-bordred table-responsive ">
+		<thead class="thead-light">
+			<tr>
+				<th scope="col" class=""><h4><b>Subject</b></h4></th>
+				<th scope="col"><h4><b>Question</b></h4></th>
+				<th scope="col"><h4><b>Posts</b></h4></th>
+				<th scope="col"><h4><b>Ansewers</b></h4></th>
+				<th scope="col"><h4><b>Last post</b></h4></th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for i in all_question %}
+			<tr>
+				<td>
+					<h3><a href="{{ url_for(request.endpoint)+'/'+'forum_viewd_question'+'/'+i[2] }}">{{ i[0]|safe }}</a></h3>
+						
+				</td>
+				<td>
+					<div>{{ i[1]|safe }}</div>
+				</td>
+				<td>
+					<div>{{ i[2]|safe }}</div>
+				</td>
+				<td><h4>{{ i[2] }} <span class="glyphicon glyphicon-eye-open"></span> viewd , {{ i[2] }} comments</h4></td>
+				<td>
+					<h4 class="h6"><a href="#"></a></h4>
+					<div>by <a href="#">Authore name</a></div>
+					<div>22/05/2019 , 22:50 AM</div>
+				</td>
+
+
+			</tr>
+			{% endfor %}
+
+		</tbody>			
+
+		</thead>
+		
+	</table>
+
+
+
+<script type="text/javascript" src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.min.js') }}" ></script>
+
+
+</body>
+</html>	

@@ -1,0 +1,57 @@
+{% include"header.html" %}
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<div class="container-fluid">
+<div class="container">
+	<div class="jumbotron">
+<div class="row w-100">
+        <div class="col-md-3">
+            <div class="card border-info mx-sm-1 p-3">
+                <div class="card border-info shadow text-info p-3 my-card" ><span class="fa fa-book-reader" aria-hidden="true"></span></div>
+                <div class="text-info text-center mt-3"><h4>Signed Courses</h4>
+                </div>
+                <div class="text-info text-center mt-2"><h1>{%if nb_courses%}{{nb_courses[0]}}{%else%}0{%endif%}</h1></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-success mx-sm-1 p-3">
+                <div class="card border-success shadow text-success p-3 my-card"><span class="fa fa-star" aria-hidden="true"></span></div>
+                <div class="text-success text-center mt-3"><h4>Current Points Scored</h4></div>
+                <div class="text-success text-center mt-2"><h1>{%if s%}{{s}}{%else%}0{%endif%}</h1></div>
+                <br>
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-danger mx-sm-1 p-3">
+                <div class="card border-danger shadow text-danger p-3 my-card" ><span class="fa fa-hands-helping" aria-hidden="true"></span></div>
+                <div class="text-danger text-center mt-3"><h4>Forum Participation</h4></div>
+                <div class="text-danger text-center mt-2"><h1>{{cmt}}</h1></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-warning mx-sm-1 p-3">
+                <div class="card border-warning shadow text-warning p-3 my-card" ><span class="fa fa-comments" aria-hidden="true"></span></div>
+                <div class="text-warning text-center mt-3"><h4>Reply On Forum</h4></div>
+                <div class="text-warning text-center mt-2"><h1>{{cmt}}</h1></div>
+            </div>
+</div>
+</div></div></div></div>
+<br>
+<br>
+<div class="container">
+	
+
+	{%for i in charts%}
+	<h5 style="color: #060547; font-family: sans-serif;">{{i[0]}}</h5>
+	<div class="progress">
+  <div class="progress-bar" style="width:{{i[2]}}%; background-color: #ed2d2d">
+  	{{i[0]}}&nbsp;{{i[2]}}%
+  </div>
+	</div>
+	<br>
+	{%endfor%}
+        
+</div>
+
+

@@ -1,0 +1,52 @@
+{% include"header.html" %}
+<div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Students</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                      <div class="dataTables_length" id="dataTable_length">
+                      </div></div></div><div class="row"><div class="col-sm-12"><table class="table table-bordered dataTable" id="dataTable" role="grid" aria-describedby="dataTable_info" style="width: 100%;" width="100%" cellspacing="0">
+                  <thead>
+                    <tr role="row">
+                      <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 57px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">N°</th>
+
+                      <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 62px;" aria-label="Position: activate to sort column ascending">Comment</th>
+
+                      <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 52px;" aria-label="Office: activate to sort column ascending">Username</th>
+                      <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 52px;" aria-label="Office: activate to sort column ascending">Action</th>
+                        
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th rowspan="1" colspan="1">N°</th>
+                      <th rowspan="1" colspan="1">Comment</th>
+                      <th rowspan="1" colspan="1">Username</th>
+                      <th rowspan="1" colspan="1">Action</th>
+                      
+                      </tr>
+                  </tfoot>
+                  <tbody>
+                  {% for i in all_comments: %} 
+                  <tr role="row" class="odd">
+                      <td class="sorting_1">{{i[0]}}</td>
+                      <td>{{i[1]}}</td>
+                      <td>{{i[2]}}</td>
+                      <td><a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a></td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table></div></div><div class="row">
+              </div>
+            </div>
+          </div>
+          <script src="{{ url_for('static',filename='vendor/jquery/jquery.min.js') }}"></script>
+          <script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+          <script src="{{ url_for('static',filename='vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+          <script src="{{ url_for('static',filename='js/sb-admin-2.min.js') }}"></script>
+          <script src="{{ url_for('static',filename='vendor/datatables/jquery.dataTables.min.js') }}"></script>
+          <script src="{{ url_for('static',filename='vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+          <script src="{{ url_for('static',filename='js/demo/datatables-demo.js') }}"></script> 

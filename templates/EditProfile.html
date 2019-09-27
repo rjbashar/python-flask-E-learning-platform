@@ -1,0 +1,78 @@
+{% include"header.html" %}
+<div class="container">
+    <div class="row m-y-2">
+        <!-- edit form column -->
+        <div class="col-lg-4 text-lg-center">
+            <h2>Edit Profile</h2>
+        </div>
+        <div class="col-lg-8">
+            
+        </div>
+        <div class="col-lg-8 push-lg-4 personal-info">
+             <form role="form" action="" method="post" enctype="multipart/form-data">
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{ user_information[0][0] }}" name="first_name" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{ user_information[0][1] }}" name="last_name" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="email" value="{{ user_information[0][2] }}" name="email" />
+                    </div>
+                </div>
+               
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{ user_information[0][3] }}" name="username" />
+                    </div>
+                </div>
+                 <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Birth Date : {{ user_information[0][4] }}</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="Date" value="user_information[0][4]" placeholder="user_information[0][4]" name="birth" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="password" value="" name="password" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="password" value="" name="password2" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                    <div class="col-lg-9">
+                        <input type="submit"  class="btn btn-primary" value="Save Changes" />
+                        <input type="reset" class="btn btn-secondary" value="Reset" />
+                        
+                    </div>
+                </div>
+            
+        </div>
+        <div class="col-lg-4 pull-lg-8 text-xs-center">
+                <img src="data:image/png;base64, {{user_information[0][5]}}" class="m-x-auto img-fluid"  style="height: 250px;width: 250px; " alt="avatar" />             
+                <h6 class="m-t-2">Upload a photo</h6>
+                <label class="custom-file">
+                  <span class="custom-file-control">Choose file</span>
+                </label>
+                <input type="file"  class="" name="images">
+        </div>
+    </div>
+</div>
+<hr />
+
+

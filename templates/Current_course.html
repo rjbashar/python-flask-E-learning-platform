@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Course</title>
+	<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Teach-Me</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="author" content="freehtml5.co" />
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/animate.css') }}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/icomoon.css') }}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.css') }}">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/magnific-popup.css') }}">
+
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/owl.carousel.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/owl.theme.default.min.css') }}">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/flexslider.css') }}">
+
+	<!-- Pricing -->
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/pricing.css') }}">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+
+	<!-- Modernizr JS -->
+	<script src="{{ url_for('static',filename='js/modernizr-2.6.2.min.js') }}"></script>
+	<style type="text/css">
+		
+		.Timeline {
+  display: flex;
+  align-items: center;
+  height: 500px;
+}
+
+.event1,
+.event2, .event3 {
+  position: relative;
+}
+
+.event1Bubble {
+  position: absolute;
+  background-color: rgba(158, 158, 158, 0.1);
+  width: 139px;
+  height: 60px;
+  top: -70px;
+  left: -15px;
+  border-radius: 5px;
+  box-shadow: inset 0 0 5px rgba(158, 158, 158, 0.64)
+}
+
+.event2Bubble {
+  position: absolute;
+  background-color: rgba(158, 158, 158, 0.1);
+  width: 139px;
+  height: 60px;
+  left: -105px;
+  top: 33px;
+  border-radius: 5px;
+  box-shadow: inset 0 0 5px rgba(158, 158, 158, 0.64)
+}
+
+.event1Bubble:after,
+.event1Bubble:before,
+.event2Bubble:after,
+.event2Bubble:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+  border-bottom: 0;
+}
+
+.event1Bubble:before {
+  bottom: -10px;
+  left: 13px;
+  border-top-color: rgba(222, 222, 222, 0.66);
+  border-width: 12px;
+}
+
+.event1Bubble:after {
+  bottom: -8px;
+  left: 13px;
+  border-top-color: #F6F6F6;
+  border-width: 12px;
+}
+
+.event2Bubble:before {
+  bottom: 59px;
+  left: 103px;
+  border-top-color: rgba(222, 222, 222, 0.66);
+  border-width: 12px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.event2Bubble:after {
+  bottom: 57px;
+  left: 103px;
+  border-top-color: #F6F6F6;
+  border-width: 12px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.eventTime {
+  display: flex;
+}
+
+.DayDigit {
+  font-size: 27px;
+  font-family: "Arial Black", Gadget, sans-serif;
+  margin-left: 10px;
+  color: #4C4A4A;
+}
+
+.Day {
+  font-size: 11px;
+  margin-left: 5px;
+  font-weight: bold;
+  margin-top: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #4C4A4A;
+}
+
+.MonthYear {
+  font-weight: 600;
+  line-height: 10px;
+  color: #9E9E9E;
+  font-size: 9px;
+}
+
+.eventTitle {
+  font-family: "Arial Black", Gadget, sans-serif;
+  color: #a71930;
+  font-size: 11px;
+  text-transform: uppercase;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  margin-left: 12px;
+  margin-top: -2px;
+}
+
+.time {
+  position: absolute;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 50px;
+  font-size: 8px;
+  margin-top: -3px;
+  margin-left: -5px;
+  color: #9E9E9E;
+}
+
+.eventAuthor {
+  position: absolute;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #9E9E9E;
+  font-size: 8px;
+  width: 100px;
+  top: -8px;
+  left: 63px;
+}
+
+.event2Author {
+  position: absolute;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #9E9E9E;
+  font-size: 8px;
+  width: 100px;
+  top: 96px;
+  left: -32px;
+}
+
+.time2{
+  position: absolute;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 50px;
+  font-size: 8px;
+  margin-top: -31px;
+  margin-left: -5px;
+  color: #9E9E9E;
+}
+
+.now{
+     background-color: #004165;
+    color: white;
+    border-radius: 7px;
+    margin: 5px;
+    padding: 4px;
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 2px solid white;
+    font-weight: bold;
+    box-shadow: 0 0 0 2px #004165
+}
+
+.futureGray{
+     filter: grayscale(1);
+    -webkit-filter: grayscale(1);
+  
+}
+
+.futureOpacity{
+  -webkit-filter: opacity(.3);
+  filter: opacity(.3);
+  
+}
+
+	</style>
+	<style>
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+</style>
+
+</head>
+<body>
+	<nav class="fh5co-nav" role="navigation">
+		<div class="top">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 text-right">
+						
+						<p class="num">Call: +213658079416</p>
+						<ul class="fh5co-social">
+							<li><a href="https://web.facebook.com/walid.gstreet"><i class="icon-facebook2"></i></a></li>
+							<li><a href="#"><i class="icon-twitter2"></i></a></li>
+							<li><a href="#"><i class="icon-dribbble2"></i></a></li>
+							<li><a href="#"><i class="icon-github"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="url_for('.index')"><i class="icon-study"></i>Teach-Me<span>.</span></a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li class="active"><a href="{{ url_for('indexc') }}" style="background-color: white"><b>Home</b></a></li>
+							<li><a href="{{ url_for('courses') }}"><b>Courses</b></a></li>
+							<li><a href="{{ url_for('forum') }}"><b>Forum</b></a></li>
+							<li><a href="{{ url_for('about') }}"><b>About</b></a></li>
+							
+							<li><a href="{{ url_for('contact') }}"><b>Contact</b></a></li>
+							{% if login_button == 0 %}
+              <li class="has-dropdown">
+                <a href="#"><b>Manage</b></a>
+                <ul class="dropdown">
+                  <li><a href="{{ url_for('index') }}">Dashboared</a></li>
+                  <li><a href="{{ url_for('indexc') }}">Home</a></li>
+                  <li><a href="{{ url_for('EditProfile') }}">Profile</a></li>
+                  <li><a href="{{ url_for('logout') }}">logout</a></li>
+                </ul>
+              </li>
+              {% endif %}
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>
+<div class="container">
+	<div class="Timeline">
+{% for i in Courses_chapitres %}
+    <svg height="5" width="300">
+       <line x1="0" y1="0" x2="300" y2="0" style="stroke:#004165;stroke-width:5" />
+  		Sorry, your browser does not support inline SVG.
+    </svg>
+
+  <div class="event1">
+    
+    <div class="event1Bubble">
+      <div class="eventTime">
+        <div class="DayDigit">{{ Courses_chapitres.index(i)}}</div>
+        <div class="Day">
+           {{ i[0] }}
+          
+        </div>
+      </div>
+      
+    </div>
+    <div class="eventAuthor"><b>by Hammouda Ryma</b></div>
+    <svg height="20" width="20">
+       <circle cx="10" cy="11" r="5" fill="#004165" />
+    </svg>
+    <div class="time">9 : 27 AM</div>
+    
+  </div>
+  {% endfor %}
+   
+
+  
+</div>
+
+</div>
+
+<div class="container">
+	<h1 style="text-align: center; color: #070742"><b>{{ result[0][0] }}</b></h1>
+	<div class="container-fluid">
+		<h2 style="color: #070742;"><b>Introduction:</b></h2>
+		<p style="color: black; font-size: 18px; font-family: sans-serif;  background-image: linear-gradient(white, #d4d7db);">{{ result[0][1]}}</p>
+		
+	</div>
+	<div class="container-fluid">
+		<h2 style="color: #070742; "><b>Requiremment:</b></h2>
+		<p style="color: black; font-size: 18px; font-family: sans-serif; background-image: linear-gradient(white, #d4d7db);">{{ result[0][2] }}</p>
+		
+	</div>
+	<div class="container-fluid">
+			<h2 style="color: #070742;">Chapiters:</h2>
+			<ol>
+			{% for i in Courses_chapitres %}
+			<li>
+			<button class="collapsible btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-comment">{{ i[0]|safe }}</button>
+			<div class="content">
+  			<p style="color: black; font-size: 18px; font-family: sans-serif;">{{ i[1]|safe }}</p>
+
+			</div>
+		    </li>
+		    {% endfor %}
+
+			</ol>
+
+	</div>
+	
+</div>
+
+<form role="form" action="" method="post">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-primary" style="background-color: #101275;  margin: auto; width: 20%;border: 3px solid blue; padding: 10px;" href="{{ page }}"><i class='fa fa-plus' ></i>&nbsp;&nbsp;Start Learning </a>
+</form>
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+</body>
+<script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+  <!-- jQuery Easing -->
+  <script src="{{ url_for('static',filename='js/jquery.easing.1.3.js') }}"></script>
+  <!-- Bootstrap -->
+  <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+  <!-- Waypoints -->
+  <script src="{{ url_for('static',filename='js/jquery.waypoints.min.js') }}"></script>
+  <!-- Stellar Parallax -->
+  <script src="{{ url_for('static',filename='js/jquery.stellar.min.js') }}"></script>
+  <!-- Carousel -->
+  <script src="{{ url_for('static',filename='js/owl.carousel.min.js') }}"></script>
+  <!-- Flexslider -->
+  <script src="{{ url_for('static',filename='js/jquery.flexslider-min.js') }}"></script>
+  <!-- countTo -->
+  <script src="{{ url_for('static',filename='js/jquery.countTo.js') }}"></script>
+  <!-- Magnific Popup -->
+  <script src="{{ url_for('static',filename='js/jquery.magnific-popup.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='js/magnific-popup-options.js') }}"></script>
+  <!-- Count Down -->
+  <script src="{{ url_for('static',filename='js/simplyCountdown.js') }}"></script>
+  <!-- Main -->
+  <script src="{{ url_for('static',filename='js/main.js') }}"></script>
+</html>

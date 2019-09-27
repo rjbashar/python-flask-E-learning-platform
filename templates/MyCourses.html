@@ -1,0 +1,26 @@
+{% include"header.html" %}
+{% for i in signed_up_courses %} 
+<div class="container">
+ <div class="row">
+ 	  <div class="card col-sm" style="width: 100rem;">
+	  <img src="data:image/png;base64, {{i[6]}}" class="m-x-auto img-fluid"  style="height: 250px;width: 250px; " alt="avatar" />				
+      <div class="card-body ">
+         <h2 class="card-title" style="color: #0a0a6b;"><b>{{ i[1] }}</b></h5>
+         <h4 class="card-text" {% if i[3]=='Hard' %}style="color: #960f0f"{% elif i[3]=='Medium' %}style="color: #ff5400"{% elif i[3]=='Easy' %}style="color: #057711"{% endif %}><b>Difficulty :&nbsp;{{ i[3] }}</b></h4>
+         <p><b>Checkpoint : </b></p>
+         <p class="card-text" style="color: #d64208"><b>{{ i[4] }}</b></p>
+         
+         <div class="progress">
+  			<div class="progress-bar progress-bar-striped progress-bar-animated " role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{ i[5] }}%; background-color: #030b59;">{% if i[5]==None %}{%else%} {{ i[5] }} {%endif%} %
+  				
+  			</div>
+		</div>
+		<br>
+		<br>
+         <a href="{{ 'courses/Current_course/id/'+i[0]+'/chapiter/'+i[2] }}" class="btn btn-success" style="background-color: #030b59;">Continue</a>
+      </div>
+       
+  </div>
+  </div>
+</div>
+{% endfor %}
